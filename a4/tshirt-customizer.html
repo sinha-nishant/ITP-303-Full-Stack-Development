@@ -160,10 +160,12 @@
 
     // Add to cart
     document.querySelector(".btn-primary").onclick = function () {
-      let inputLength = document.querySelector("#tshirt-text").value.length;
+
+	  event.preventDefault();	
+
+      let inputLength = document.querySelector("#tshirt-text").value.trim().length;
       if (inputLength == 0) {
-        document.querySelector(".error-message").innerHTML =
-          "Text is required";
+        document.querySelector(".error-message").innerHTML = "Text is required";
         document.querySelector("#tshirt-text").classList.add("is-invalid");
       } else if (inputLength > 20) {
         document.querySelector(".error-message").innerHTML =
@@ -171,12 +173,11 @@
         document.querySelector("#tshirt-text-help").style.color = "red";
         document.querySelector("#tshirt-text").classList.add("is-invalid");
       } else {
+		document.querySelector(".error-message").innerHTML = "";
         document.querySelector("#cart-message").style.display = "None";
         document.querySelector(".cart-item").classList.remove("hide");
         adjustPrices(1);
       }
-
-      return false;
     };
 
     // Remove from cart
