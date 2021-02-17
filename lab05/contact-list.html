@@ -89,6 +89,7 @@
 				let fName = inputs[0].value;
 				let lName = inputs[1].value;
 				let email = inputs[2].value;
+				document.querySelector("#contact-form").reset();
 				contacts.push(new Contact(fName, lName, email));
 			}
 		}
@@ -97,7 +98,7 @@
 		let contactToItem = function(contact) {
 			let node = document.createElement('li');
 			node.classList.add("list-group-item");
-			let contactText = contact.firstName + ", " + contact.lastName + " " + "(" + contact.email + ")";
+			let contactText = contact.lastName + ", " + contact.firstName + " " + "(" + contact.email + ")";
 			node.textContent += contactText;
 			return node;
 		}
