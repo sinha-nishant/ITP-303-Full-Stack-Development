@@ -1,0 +1,37 @@
+container {
+	width: 90%;
+}
+
+#numDisplayed {
+	margin-top: 3%;
+}
+
+img:hover {
+	opacity: 0.1;
+}
+
+.movie {
+	position: relative;
+}
+
+.hoverInfo {
+	display: none;
+	text-align: center;
+	width: 90%;
+	color: black;
+}
+
+.movie:hover > .hoverInfo{
+	display: inline-block;
+	position: absolute;
+	top: 10%;
+}
+
+.movieRow {
+	margin-bottom: 5%;
+	height: 1%;
+}
+
+.infoRow {
+	text-align: center;
+}
