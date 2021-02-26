@@ -4,22 +4,42 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<title>To do List</title>
 	<link rel="stylesheet" href="style.css">
+
+	<!-- Font Awesome --> 
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+	<!-- Google Fonts --> 
+	<link rel="preconnect" href="https://fonts.gstatic.com"> 
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 </head>
 <body>
-	<div id="weather"></div>
+	<div id="weather">
+		Today's weather in 
+		<select id="location">
+			<option value="Los Angeles" selected>Los Angeles</option>
+			<option value="Atlanta">Atlanta</option>
+			<option value="Dallas">Dallas</option>
+		</select>
+		<span id="temp"></span>° 
+		<span id="description"></span>. Feels like 
+		<span id="feels-temp"></span>° 
+	</div>
 	<br>
 	<br>
-	<div id="todo">
-		<h1>To Do List</h1>
-		<input placeholder="Add to-do item here">
-		<br>
-		<ul>
-			<li>X A</li>
-			<li>X B</li>
-			<li>X C</li>
-		</ul>
+	<div id="todo-box">
+		<div id="list-header">
+			<div id="list-name">To Do List</div>
+			<div id="hide"><i class="fa fa-plus fa-2x" aria-hidden="true"></i>
+			</i></div>
+		</div>
+		<input id="todo-input" placeholder="Add to-do item here">
+		<div id="todo-list">
+			<div class="todo"><i class="fa fa-square-o"></i>Task 1</div>
+			<div class="todo"><i class="fa fa-square-o"></i>Task 2</div>
+			<div class="todo"><i class="fa fa-square-o"></i>Task 3</div>
+		</div>
 	</div>
 
 	<!-- import jQuery -->
