@@ -19,12 +19,22 @@ let getWeather = function(city) {
 
 // Load weather for default selection when page loads
 $(document).ready(function() {
-	getWeather($("#location").val());
+	console.log("location0:" + localStorage.getItem("location"));
+	if (localStorage.getItem("location")) {
+		getWeather(localStorage.getItem("location"));
+
+		$( "#location option[value=" + localStorage.getItem("location") + "]").prop("selected", "selected");
+	}
+	else {
+		getWeather($("#location").val());
+	}
 }); 
 
 // Get weather for new location when selected location is changed
 $("#location").change(function() {
 	getWeather($("#location").val());
+	localStorage.setItem("location", $("#location").val());
+	console.log("location1:" + localStorage.getItem("location"));
 });
 
 // When user clicks enter, add todo to list
@@ -36,20 +46,34 @@ $("#todo-input").keypress(function(event) {
 		todo.innerHTML = "<i class='fa fa-square-o'></i>" + $("#todo-input").val();
 		$("#todo-input").val("");
         $("#todo-list").append(todo);
-		$(".todo").click(function() {
-			$(this).css("background-color", "gray");
-			$(this).css("text-decoration", "line-through");
-			$(this).css("font-style", "italic");
-		});
     }
 });
 
 $("#hide").click(function() {
-	// let inputBox = .css("display", "none")
 	if ($("#todo-input").css("display") === "none") {
-		$("#todo-input").css("display", "inline");
+		$("#todo-input").fadeIn("slow", function() {
+			$("#todo-input").css("display", "inline");
+		});
 	}
 	else {
-		$("#todo-input").css("display", "none");
+		$("#todo-input").fadeOut("slow", function() {
+			$("#todo-input").css("display", "none");
+		});
 	}
+});
+
+$( "#todo-list" ).on("click", "div", function() {
+	if ($(this).hasClass("todo-done")) {
+		$(this).removeClass("todo-done");
+	}
+	else {
+		$(this).addClass("todo-done");
+	}
+});
+
+$("#todo-list").on("click", ".fa-square-o", function(event) {
+	event.stopPropagation();
+	$(this).parent().fadeOut("slow", function() {
+		$(this).remove();
+	})
 });

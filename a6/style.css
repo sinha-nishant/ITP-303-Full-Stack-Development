@@ -75,3 +75,13 @@ h1 {
 	padding-left: 10px;
 	padding-right: 10px;
 }
+
+.todo-done {
+	background-color: gray;
+	text-decoration: line-through;
+	font-style: italic;
+}
+
+.animate {
+	height: 0
+}
